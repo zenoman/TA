@@ -13,10 +13,12 @@
 
 
 -- Dumping database structure for tastore
+DROP DATABASE IF EXISTS `tastore`;
 CREATE DATABASE IF NOT EXISTS `tastore` /*!40100 DEFAULT CHARACTER SET latin1 */;
 USE `tastore`;
 
 -- Dumping structure for table tastore.admins
+DROP TABLE IF EXISTS `admins`;
 CREATE TABLE IF NOT EXISTS `admins` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(80) DEFAULT NULL,
@@ -41,6 +43,7 @@ INSERT INTO `admins` (`id`, `username`, `password`, `nama`, `telp`, `email`, `le
 /*!40000 ALTER TABLE `admins` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.detail_cancel
+DROP TABLE IF EXISTS `detail_cancel`;
 CREATE TABLE IF NOT EXISTS `detail_cancel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idwarna` int(11) DEFAULT NULL,
@@ -61,6 +64,7 @@ DELETE FROM `detail_cancel`;
 /*!40000 ALTER TABLE `detail_cancel` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.gambar
+DROP TABLE IF EXISTS `gambar`;
 CREATE TABLE IF NOT EXISTS `gambar` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `kode_barang` varchar(30) DEFAULT NULL,
@@ -73,10 +77,21 @@ DELETE FROM `gambar`;
 /*!40000 ALTER TABLE `gambar` DISABLE KEYS */;
 INSERT INTO `gambar` (`id`, `kode_barang`, `nama`) VALUES
 	(17, 'BRG00001', '1547943974-kaos1.jpeg'),
-	(18, 'BRG00001', '1547943974-kaos2.jpg');
+	(18, 'BRG00001', '1547943974-kaos2.jpg'),
+	(19, 'BRG00002', '1547946228-kaos3.jpg'),
+	(20, 'BRG00002', '1547946228-kaos4.jpg'),
+	(21, 'BRG00002', '1547946228-kaos5.jpg'),
+	(22, 'BRG00003', '1547947255-jaket1.jpg'),
+	(23, 'BRG00003', '1547947255-jaket2.jpg'),
+	(25, 'BRG00004', '1547947628-kemeja1.jpg'),
+	(26, 'BRG00004', '1547947628-kemeja2.jpg'),
+	(27, 'BRG00004', '1547947628-kemeja3.jpg'),
+	(29, 'BRG00005', '1547947962-kemeja5.jpg'),
+	(30, 'BRG00005', '1547947962-kemeja6.jpg');
 /*!40000 ALTER TABLE `gambar` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.keranjang_cancel
+DROP TABLE IF EXISTS `keranjang_cancel`;
 CREATE TABLE IF NOT EXISTS `keranjang_cancel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `tgl` date DEFAULT NULL,
@@ -94,6 +109,7 @@ INSERT INTO `keranjang_cancel` (`id`, `tgl`, `idbarang`, `jumlah`) VALUES
 /*!40000 ALTER TABLE `keranjang_cancel` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.log_cancel
+DROP TABLE IF EXISTS `log_cancel`;
 CREATE TABLE IF NOT EXISTS `log_cancel` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `faktur` varchar(300) DEFAULT NULL,
@@ -107,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `log_cancel` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table tastore.log_cancel: ~0 rows (approximately)
+-- Dumping data for table tastore.log_cancel: ~1 rows (approximately)
 DELETE FROM `log_cancel`;
 /*!40000 ALTER TABLE `log_cancel` DISABLE KEYS */;
 INSERT INTO `log_cancel` (`id`, `faktur`, `total_akhir`, `tgl`, `bulan`, `status`, `id_user`, `id_admin`, `keterangan`) VALUES
@@ -115,6 +131,7 @@ INSERT INTO `log_cancel` (`id`, `faktur`, `total_akhir`, `tgl`, `bulan`, `status
 /*!40000 ALTER TABLE `log_cancel` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.migrations
+DROP TABLE IF EXISTS `migrations`;
 CREATE TABLE IF NOT EXISTS `migrations` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `migration` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
@@ -128,6 +145,7 @@ DELETE FROM `migrations`;
 /*!40000 ALTER TABLE `migrations` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.settings
+DROP TABLE IF EXISTS `settings`;
 CREATE TABLE IF NOT EXISTS `settings` (
   `idsettings` int(11) NOT NULL AUTO_INCREMENT,
   `webName` varchar(100) DEFAULT NULL,
@@ -146,7 +164,7 @@ CREATE TABLE IF NOT EXISTS `settings` (
   PRIMARY KEY (`idsettings`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table tastore.settings: ~0 rows (approximately)
+-- Dumping data for table tastore.settings: ~1 rows (approximately)
 DELETE FROM `settings`;
 /*!40000 ALTER TABLE `settings` DISABLE KEYS */;
 INSERT INTO `settings` (`idsettings`, `webName`, `kontak1`, `kontak2`, `kontak3`, `email`, `ico`, `meta`, `logo`, `keterangan`, `alamat`, `nama_toko`, `max_tgl`, `peraturan`) VALUES
@@ -154,6 +172,7 @@ INSERT INTO `settings` (`idsettings`, `webName`, `kontak1`, `kontak2`, `kontak3`
 /*!40000 ALTER TABLE `settings` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.sliders
+DROP TABLE IF EXISTS `sliders`;
 CREATE TABLE IF NOT EXISTS `sliders` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `judul` varchar(100) DEFAULT NULL,
@@ -171,6 +190,7 @@ INSERT INTO `sliders` (`id`, `judul`, `foto`) VALUES
 /*!40000 ALTER TABLE `sliders` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.tb_bank
+DROP TABLE IF EXISTS `tb_bank`;
 CREATE TABLE IF NOT EXISTS `tb_bank` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nama_bank` varchar(40) DEFAULT NULL,
@@ -189,6 +209,7 @@ INSERT INTO `tb_bank` (`id`, `nama_bank`, `rekening`) VALUES
 /*!40000 ALTER TABLE `tb_bank` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.tb_barangs
+DROP TABLE IF EXISTS `tb_barangs`;
 CREATE TABLE IF NOT EXISTS `tb_barangs` (
   `idbarang` int(11) NOT NULL AUTO_INCREMENT,
   `kode` varchar(100) DEFAULT NULL,
@@ -203,10 +224,19 @@ DELETE FROM `tb_barangs`;
 /*!40000 ALTER TABLE `tb_barangs` DISABLE KEYS */;
 INSERT INTO `tb_barangs` (`idbarang`, `kode`, `stok`, `warna`, `barang_jenis`) VALUES
 	(14, 'BRG00001', 10, 'M', 'kaos hitam polos M'),
-	(15, 'BRG00001', 15, 'XL', 'kaos hitam polos XL');
+	(15, 'BRG00001', 15, 'XL', 'kaos hitam polos XL'),
+	(16, 'BRG00002', 10, 'M', 'kaos putih polos M'),
+	(17, 'BRG00002', 15, 'XL', 'kaos putih polos XL'),
+	(18, 'BRG00003', 20, 'M', 'jaket flava pink M'),
+	(19, 'BRG00003', 15, 'XL', 'jaket flava pink XL'),
+	(20, 'BRG00004', 20, 'M', 'kemeja putih M'),
+	(21, 'BRG00004', 20, 'S', 'kemeja putih S'),
+	(22, 'BRG00005', 20, 'XL', 'kemeja cewek hitam XL'),
+	(23, 'BRG00005', 20, 'M', 'kemeja cewek hitam M');
 /*!40000 ALTER TABLE `tb_barangs` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.tb_details
+DROP TABLE IF EXISTS `tb_details`;
 CREATE TABLE IF NOT EXISTS `tb_details` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idwarna` int(11) DEFAULT NULL,
@@ -236,6 +266,7 @@ INSERT INTO `tb_details` (`id`, `idwarna`, `iduser`, `faktur`, `tgl`, `tgl_kadal
 /*!40000 ALTER TABLE `tb_details` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.tb_kategoris
+DROP TABLE IF EXISTS `tb_kategoris`;
 CREATE TABLE IF NOT EXISTS `tb_kategoris` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `kategori` varchar(100) DEFAULT NULL,
@@ -253,6 +284,7 @@ INSERT INTO `tb_kategoris` (`id`, `kategori`, `gambar`) VALUES
 /*!40000 ALTER TABLE `tb_kategoris` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.tb_kodes
+DROP TABLE IF EXISTS `tb_kodes`;
 CREATE TABLE IF NOT EXISTS `tb_kodes` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `id_kategori` int(11) DEFAULT NULL,
@@ -269,10 +301,15 @@ CREATE TABLE IF NOT EXISTS `tb_kodes` (
 DELETE FROM `tb_kodes`;
 /*!40000 ALTER TABLE `tb_kodes` DISABLE KEYS */;
 INSERT INTO `tb_kodes` (`id`, `id_kategori`, `kode_barang`, `barang`, `harga_beli`, `harga_barang`, `deskripsi`, `diskon`) VALUES
-	(6, 1, 'BRG00001', 'kaos hitam polos', 15000, 20000, '<h1>alksfjklasdjfkasdf</h1><p><strong>alksdfakdfjlkasdfasdflkjsadfkl</strong></p><p>alskdfjaskl;dfjaskl;dfj;asf kdsfj askdfjdk akldfjas kladjfkl</p>', 10);
+	(6, 1, 'BRG00001', 'kaos hitam polos', 15000, 20000, '<h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2><p> <strong>Lorem Ipsum has been the industry\'s</strong> standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 10),
+	(7, 1, 'BRG00002', 'kaos putih polos', 25000, 30000, '<h1>Lorem Ipsum </h1><p>is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus <strong>PageMaker including versions of Lorem Ipsum</strong>.</p>', 0),
+	(8, 3, 'BRG00003', 'jaket flava pink', 50000, 60000, '<p><strong>Lorem Ipsum is simply dummy text of the printing and typesetting industry</strong></p><p> Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 0),
+	(9, 2, 'BRG00004', 'kemeja putih', 23000, 25000, '<h2>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h2><p>Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 0),
+	(10, 2, 'BRG00005', 'kemeja cewek hitam', 35000, 40000, '<h1>Lorem Ipsum</h1><p> is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>', 5);
 /*!40000 ALTER TABLE `tb_kodes` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.tb_stokawals
+DROP TABLE IF EXISTS `tb_stokawals`;
 CREATE TABLE IF NOT EXISTS `tb_stokawals` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idbarang` int(11) DEFAULT NULL,
@@ -290,6 +327,7 @@ DELETE FROM `tb_stokawals`;
 /*!40000 ALTER TABLE `tb_stokawals` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.tb_tambahstoks
+DROP TABLE IF EXISTS `tb_tambahstoks`;
 CREATE TABLE IF NOT EXISTS `tb_tambahstoks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `idwarna` int(11) DEFAULT NULL,
@@ -324,10 +362,19 @@ INSERT INTO `tb_tambahstoks` (`id`, `idwarna`, `idadmin`, `kode_barang`, `jumlah
 	(15, 13, 10, 'BRG00005', 2, 40000, '2019-01-18', 'di beli tetangga', 'kurangi'),
 	(16, 3, 10, 'BRG00001', 3, 60000, '2019-01-18', 'di pindah ke stok offline', 'kurangi'),
 	(17, 14, 10, 'BRG00001', 10, 150000, '2019-01-20', 'menambah pertama kali', 'tambah'),
-	(18, 15, 10, 'BRG00001', 15, 225000, '2019-01-20', 'menambah pertama kali', 'tambah');
+	(18, 15, 10, 'BRG00001', 15, 225000, '2019-01-20', 'menambah pertama kali', 'tambah'),
+	(19, 16, 10, 'BRG00002', 10, 250000, '2019-01-20', 'menambah pertama kali', 'tambah'),
+	(20, 17, 10, 'BRG00002', 15, 375000, '2019-01-20', 'menambah pertama kali', 'tambah'),
+	(21, 18, 10, 'BRG00003', 20, 1000000, '2019-01-20', 'menambah pertama kali', 'tambah'),
+	(22, 19, 10, 'BRG00003', 15, 750000, '2019-01-20', 'menambah pertama kali', 'tambah'),
+	(23, 20, 10, 'BRG00004', 20, 460000, '2019-01-20', 'menambah pertama kali', 'tambah'),
+	(24, 21, 10, 'BRG00004', 20, 460000, '2019-01-20', 'menambah pertama kali', 'tambah'),
+	(25, 22, 10, 'BRG00005', 20, 700000, '2019-01-20', 'menambah pertama kali', 'tambah'),
+	(26, 23, 10, 'BRG00005', 20, 700000, '2019-01-20', 'menambah pertama kali', 'tambah');
 /*!40000 ALTER TABLE `tb_tambahstoks` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.tb_transaksis
+DROP TABLE IF EXISTS `tb_transaksis`;
 CREATE TABLE IF NOT EXISTS `tb_transaksis` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `iduser` int(11) DEFAULT NULL,
@@ -344,7 +391,7 @@ CREATE TABLE IF NOT EXISTS `tb_transaksis` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
--- Dumping data for table tastore.tb_transaksis: ~0 rows (approximately)
+-- Dumping data for table tastore.tb_transaksis: ~1 rows (approximately)
 DELETE FROM `tb_transaksis`;
 /*!40000 ALTER TABLE `tb_transaksis` DISABLE KEYS */;
 INSERT INTO `tb_transaksis` (`id`, `iduser`, `faktur`, `tgl`, `total`, `status`, `alamat_tujuan`, `admin`, `ongkir`, `total_akhir`, `pembayaran`, `keterangan`) VALUES
@@ -352,6 +399,7 @@ INSERT INTO `tb_transaksis` (`id`, `iduser`, `faktur`, `tgl`, `total`, `status`,
 /*!40000 ALTER TABLE `tb_transaksis` ENABLE KEYS */;
 
 -- Dumping structure for table tastore.tb_users
+DROP TABLE IF EXISTS `tb_users`;
 CREATE TABLE IF NOT EXISTS `tb_users` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) DEFAULT NULL,
@@ -379,6 +427,7 @@ INSERT INTO `tb_users` (`id`, `username`, `password`, `email`, `telp`, `nama`, `
 /*!40000 ALTER TABLE `tb_users` ENABLE KEYS */;
 
 -- Dumping structure for trigger tastore.add_stok
+DROP TRIGGER IF EXISTS `add_stok`;
 SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 DELIMITER //
 CREATE TRIGGER `add_stok` AFTER INSERT ON `tb_tambahstoks` FOR EACH ROW update tb_barangs set stok=stok+new.jumlah where idbarang=new.idwarna//
@@ -386,6 +435,7 @@ DELIMITER ;
 SET SQL_MODE=@OLDTMP_SQL_MODE;
 
 -- Dumping structure for trigger tastore.in_stok
+DROP TRIGGER IF EXISTS `in_stok`;
 SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 DELIMITER //
 CREATE TRIGGER `in_stok` AFTER INSERT ON `detail_cancel` FOR EACH ROW update tb_barangs set stok=stok+new.jumlah where idbarang=new.idwarna//
@@ -393,6 +443,7 @@ DELIMITER ;
 SET SQL_MODE=@OLDTMP_SQL_MODE;
 
 -- Dumping structure for trigger tastore.keranjang_dihapus
+DROP TRIGGER IF EXISTS `keranjang_dihapus`;
 SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 DELIMITER //
 CREATE TRIGGER `keranjang_dihapus` AFTER INSERT ON `keranjang_cancel` FOR EACH ROW BEGIN
@@ -402,6 +453,7 @@ DELIMITER ;
 SET SQL_MODE=@OLDTMP_SQL_MODE;
 
 -- Dumping structure for trigger tastore.min_stok
+DROP TRIGGER IF EXISTS `min_stok`;
 SET @OLDTMP_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 DELIMITER //
 CREATE TRIGGER `min_stok` AFTER INSERT ON `tb_details` FOR EACH ROW update tb_barangs set stok=stok-new.jumlah where idbarang=new.idwarna//
