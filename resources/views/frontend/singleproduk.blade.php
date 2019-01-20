@@ -179,7 +179,7 @@
                                         <div class="form-group">
                                             <label class="control-label col-sm-2">Ukuran </label>
                                             <div class="col-sm-10">
-                                                <select name="warna" class="form-control" placeholder="pilih warna">
+                                                <select name="warna" class="form-control" placeholder="pilih ukuran">
                                                 <option selected disabled hidden>pilih ukuran</option>
                                                 @php 
                                                 $warnas = DB::table('tb_barangs')
