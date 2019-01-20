@@ -52,7 +52,7 @@
                                 <input type="hidden" name="kode_barang" value="{{$kode}}">
                                 <input type="hidden" name="jumlah_file" value="{{4-$jumlah_foto}}">
                                 <label>Foto</label>
-                                <input type="file" class="form-control" name="photo[]" multiple required>
+                                <input type="file" class="form-control" name="photo[]" multiple required accept="image/*">
                                 <p class="help-block">*Foto Tidak Boleh Lebih Dari {{4-$jumlah_foto}} File</p>
                             </div>
                             @if (session('errorfoto'))
@@ -142,15 +142,15 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           <h4>Edit Variasi Warna & Stok</h4>
+                           <h4>Edit Variasi Ukuran & Stok</h4>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div>
                               <form class="form-inline" action="{{url('/barang/warna')}}" method="post">
                                 <div class="form-group">
-                                  <label for="email">Warna:</label>
-                                  <input type="text" class="form-control" placeholder="Masukan Warna" name="warna" required>
+                                  <label for="email">Ukuran:</label>
+                                  <input type="text" class="form-control" placeholder="Masukan Ukuran" name="warna" required>
                                 </div>
                                 <div class="form-group">
                                   <label for="pwd">Stok:</label>
@@ -175,7 +175,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Warna</th>
+                                            <th>Ukuran</th>
                                             <th>Stok</th>
                                             <th>Aksi</th>
                                         </tr>

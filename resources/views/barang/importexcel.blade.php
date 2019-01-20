@@ -41,15 +41,15 @@
                                                <br><br>
                                                <img src="{{url('img/web/dvina2.PNG')}}"><br><br>
                                                <li>
-                                                   isi <b>nama_barang</b> dan <b>deskripsi</b> dengan format text, kemudian untuk <b>harga_barang</b>,<b>harga_beli</b>,<b>diskon_barang</b> isi dengan format angka, ingat, pastikan <b>diskon_barang</b> tidak lebih dari 99. Kosongkan stok dan warna pada barang utama. Untuk lebih jelas lihat gambar di bawah
+                                                   isi <b>nama_barang</b> dan <b>deskripsi</b> dengan format text, kemudian untuk <b>harga_barang</b>,<b>harga_beli</b>,<b>diskon_barang</b> isi dengan format angka, ingat, pastikan <b>diskon_barang</b> tidak lebih dari 99. Kosongkan stok dan ukuran pada barang utama. Untuk lebih jelas lihat gambar di bawah
                                                </li><br>
                                                <img src="{{url('img/web/dvina3.PNG')}}"><br><br>
                                                <li>
-                                                   Selanjutnya varian, varian hanya dapat di isi dengan huruf <b>y</b> atau <b>n</b> dan pastikan huruf kecil, huruf <b>y</b> digunakan untuk barang utama sedangkan <b>n</b> digunakan untuk variasi warna barang utama, pastikan variasi barang memiliki data <b>nama_barang</b>, <b>harga_beli</b>, <b>stok</b>, <b>warna</b> dan <b>varian(n)</b> kosongkan data lain selain data tersebut. <b>nama_barang</b> pada varian adalah nama barang di tambah warna, ini bersifat wajib. untuk lebih jelas lihat contoh berikut
+                                                   Selanjutnya varian, varian hanya dapat di isi dengan huruf <b>y</b> atau <b>n</b> dan pastikan huruf kecil, huruf <b>y</b> digunakan untuk barang utama sedangkan <b>n</b> digunakan untuk variasi ukuran barang utama, pastikan variasi barang memiliki data <b>nama_barang</b>, <b>harga_beli</b>, <b>stok</b>, <b>ukuran</b> dan <b>varian(n)</b> kosongkan data lain selain data tersebut. <b>nama_barang</b> pada varian adalah nama barang di tambah ukuran, ini bersifat wajib. untuk lebih jelas lihat contoh berikut
                                                </li><br>
-                                               <img src="{{url('img/web/dvina4.PNG')}}"><br><br>
+                                               <img src="{{url('img/web/dvina4.PNG')}}" width="98%"><br><br>
                                                <div class="alert alert-warning">
-                                                dari gambar di atas menunjukan bahwa barang <b>kerudung kediri</b> memiliki variasi warna : merah & biru kemudian <b>kerudung malang</b> tidak memiliki warna lain kecuali putih.
+                                                dari gambar di atas menunjukan bahwa barang <b>jilbab kediri</b> memiliki variasi ukuran : M & XL, <b>kaos putih polos</b> memiliki ukuran M & S.
                                                </div><br>
                                                <li>Kemudian save <b>template.xlsx</b> dan upload di tab paling bawah yaitu <b>upload file</b>, jangan lupa setelah proses upload selesai tambahkan gambar pada barang-barang tersebut </li><br>
                                                <div class="alert alert-danger">
