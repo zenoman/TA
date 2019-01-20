@@ -66,26 +66,40 @@ class transaksiController extends Controller
 
 
 //--------------------------- API Android =--------------------------
-    function orderBarang(Request $request){
-        $id=$request->get('idwarna');
-        $iduser=$request->get('iduser');        
-        $tgl=date('dd-MM-yyyy');
-        //$tglExp=date('');
-        $kode=$request->get('kode_barang');
-        $barang=$request->get('barang');
-        $harga=$request->get('harga');
-        $jumlah=$request->get('jumlah');
-        $totala=$harga*$jumlah;
-        $diskon=$request->get('diskon');
-        $total=$totala-($totala*$diskon/100);
-        $metod="pesan";
-//simpan ke Query
-        $data=DB::insert("insert into tb_details(idwarna,iduser,tgl,tgl_kadaluarsa,kode_barang,barang,harga,jumlah,total_a,diskon,total,metode) values(?,?,?,?,?,?,?,?,?,?,?,?)",[$id,$iduser,$tgl,$tglExp,$kode,$barang,$harga,$jumlah,$totala,$diskon,$total,$metod]);
-        if ($data){
-            return response()->json(["status"=>"1","msg"=>"Berhasil Dipesan"]);
-        }else{
-            return response()->json(["status"=>"0","msg"=>"Gagal Dipesan"]);
-        }
+function orderBarang(Request $request){
+    $id=$request->get('idwarna');
+    $iduser=$request->get('iduser');        
+    $tgl=date('d-m-Y');
+    $tglExp=date('d-m-Y',strtotime($tgl. '+ 5 days'));
+    $kode=$request->get('kode_barang');
+    $barang=$request->get('barang');
+    $harga=$request->get('harga');
+    $jumlah=$request->get('jumlah');
+    $totala=$harga*$jumlah;
+    $diskon=$request->get('diskon');
+    $total=$totala-($totala*$diskon/100);
+    $metod="pesan";
 
+    //cek Stok
+    
+//simpan ke Query
+    $data=DB::insert("insert into tb_details(idwarna,iduser,tgl,tgl_kadaluarsa,kode_barang,barang,harga,jumlah,total_a,diskon,total,metode) values(?,?,?,?,?,?,?,?,?,?,?,?)",[$id,$iduser,$tgl,$tglExp,$kode,$barang,$harga,$jumlah,$totala,$diskon,$total,$metod]);
+    if ($data){
+        return response()->json(["status"=>"1","pesan"=>"Berhasil Dipesan"]);
+    }else{
+        return response()->json(["status"=>"0","pesan"=>"Gagal Dipesan"]);
     }
+
+}
+//tampil Transaksi
+function vBelanja($id){
+    $data=DB::table("tb_details")
+        ->join('tb_barangs','idbarang','=','idwarna','left outer')
+        ->join('gambar','gambar.kode_barang','=','tb_details.kode_barang')
+        ->select(DB::raw('tb_details.*,tb_barangs.warna,gambar.nama'))
+        ->groupBy('id')
+        ->get();
+        return response()->json(["data"=>$data]);
+}
+
 }
