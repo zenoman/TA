@@ -187,7 +187,8 @@ class Barangcontroller extends Controller
         $rules = [
             'kode_barang' => 'required|min:3',
             'nama_barang' => 'required',
-            "photo.*"  => "required|image|max:2048"
+            'photo' => 'required',
+            'photo.*'  => 'required|image|max:4240'
         ];
         $customMessages = [
         'required'  => 'Maaf, :attribute harus di isi',
@@ -200,16 +201,14 @@ class Barangcontroller extends Controller
         'max'       => 'Maaf, file terlalu besar'];
 
     $this->validate($request, $rules, $customMessages);
-
+    
     $jumlah_file = sizeof($request->file('photo'));
     if($jumlah_file>4){
         return redirect('barang/create')->with('errorfoto','Maaf, Foto tidak boleh lebih dari 4');
     }
     foreach ($request->file('photo') as $photos) {
-             $namaexs = $photos->getClientOriginalName();
-            //membuat nama  file menjadi lower case / kecil semua
+            $namaexs = $photos->getClientOriginalName();
             $lower_file_name=strtolower($namaexs);
-            //merubah nama file yg ada spasi menjadi -
             $replace_space=str_replace(' ', '-', $lower_file_name);
             $namagambar = time().'-'.$replace_space;
             $destination = public_path('img/barang');

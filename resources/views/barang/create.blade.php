@@ -33,11 +33,13 @@
                         <div class="panel-body">
                             <div class="row">
                                 @if (count($errors) > 0)
+                                 <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
+    </div>
     @endif
                                 <div class="col-lg-12">
                                     <form action="/barang" role="form" method="POST" enctype="multipart/form-data">
@@ -78,7 +80,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label>Foto</label>
-                                            <input type="file" class="form-control" name="photo[]" multiple required accept="image/*">
+                                            <input type="file" class="form-control" name="photo[]" multiple required accept="image/*" id="photo">
                                             <p class="help-block">*Foto Tidak Lebih Dari 4 File</p> 
                                         </div>
                                          @if (session('errorfoto'))
@@ -237,6 +239,25 @@ function add_feed()
     .catch( error => {
         console.log( error );
     } );
+    $('input[type="file"]').change(function(){
+    var imageSizeArr = 0;
+    var imageSize = document.getElementById('photo');
+    var imageCount = imageSize.files.length;
+    for (var i = 0; i < imageSize.files.length; i++)
+    {
+         var imageSiz = imageSize.files[i].size;
+         var imagename = imageSize.files[i].name;
+         if (imageSiz > 3000000) {
+             $('#test').text('3');
+             var imageSizeArr = 1;
+         }
+         if (imageSizeArr == 1)
+         {
+             alert('Maaf, gambar "'+imagename+'" terlalu besar / memiliki ukuran lebih dari 3MB');
+             $('#photo').val('');
+         }
+     }
+ }); 
     </script>
         @endsection
 
