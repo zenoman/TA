@@ -55,7 +55,7 @@
                                             
                                             <td class="product-name">
                                             	
-                                                    <a href="#" data-toggle="modal" data-target="#myModal{{$transaksi->id}}" style="color:#428bca;" class="text-primary">
+                                                    <a href="#" data-toggle="modal" data-target="#myModal{{$transaksi->id}}" style="color:#d9534f;" class="text-primary">
                                                        {{$transaksi->faktur}} 
                                                     </a>
                             <div class="modal fade" id="myModal{{$transaksi->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
@@ -79,7 +79,7 @@
                                             <th class="text-center">
                                             Nama Barang</th>
                                             <th class="text-center">
-                                            Warna</th>
+                                            Ukuran</th>
                                             <th class="text-center">
                                             Jumlah</th>
                                             <th class="text-center">Harga</th>
@@ -241,7 +241,7 @@
                                                     <li>Pergi Ketoko</li>
                                                     <li>Tujukan Nomer Faktur Pembelian, Yaitu "<b>{{$transaksi->faktur}}</b>"</li>
                                                     <li>Bayar Sesuai Total Pembelian</li>
-                                                    <li>Jangan Lupa Bahagia</li>
+                                                    <li>Happy Shopping</li>
                                                 </ol>
                                                 @endif
                                             @endforeach

@@ -1,9 +1,4 @@
 <!DOCTYPE html>
-<!--
-    ustora by freshdesignweb.com
-    Twitter: https://twitter.com/freshdesignweb
-    URL: https://www.freshdesignweb.com/ustora/
--->
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -33,7 +28,20 @@
 
   </head>
   <body>
-   
+   <style>
+        input[type="submit"], button[type=submit] {
+    background: none repeat scroll 0 0 #5a88ca;
+    border: medium none;
+    color: #fff;
+    padding: 11px 20px;
+    text-transform: uppercase;
+}
+input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
+.single-sidebar input[type="text"] {
+    margin-bottom: 10px;
+    width: 100%;
+}
+    </style>
     <div class="header-area">
         <div class="container">
             <div class="row">
@@ -41,11 +49,11 @@
                     <div class="user-menu">
                         <ul>
                              @if(!Session::get('user_name'))
-                            <li><a href="{{url('/loginUser')}}"><i class="fa fa-user"></i> Login</a></li>
+                            <li><a href="{{url('/loginUser')}}" class="link-merah"><i class="fa fa-user"></i> Login</a></li>
                             @else
-                            <li><a href="{{url('/keranjang')}}"><i class="fa fa-shopping-cart"></i>Keranjang Saya</a></li>
-                             <li><a href="{{url('/transaksisaya')}}"><i class="fa fa-file"></i>Transaksi Saya</a></li>
-                            <li><a href="{{url('/transaksigagal')}}"><i class="fa fa-trash"></i>Transaksi Gagal</a></li>
+                            <li><a href="{{url('/keranjang')}}" class="link-merah"><i class="fa fa-shopping-cart"></i>Keranjang Saya</a></li>
+                             <li><a href="{{url('/transaksisaya')}}" class="link-merah"><i class="fa fa-file"></i>Transaksi Saya</a></li>
+                            <li><a href="{{url('/transaksigagal')}}" class="link-merah"><i class="fa fa-trash"></i>Transaksi Gagal</a></li>
                             @endif
                         </ul>
                     </div>
@@ -56,7 +64,7 @@
                     <div class="header-right">
                         <ul class="list-unstyled list-inline">
                             <li class="dropdown dropdown-small">
-                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle" href="#"><span class="key">{{Session::get('user_name')}}</span><b class="caret"></b></a>
+                                <a data-toggle="dropdown" data-hover="dropdown" class="dropdown-toggle link-merah" href="#"><span class="key">{{Session::get('user_name')}}</span><b class="caret"></b></a>
                                 <ul class="dropdown-menu">
                                     <li><a href="#">Edit Profile</a></li>
                                     <li><a href="{{url('/login/logoutuser')}}">Logout</a></li>
@@ -309,7 +317,7 @@
                                 </p>
                                 <p class="form-row form-row-first">
                                     <img src="{{asset('img/user/'.$user->ktp_gmb)}}" style="width: 30%;">
-                                    <label>Ganti Foto KTP
+                                    <label>Ganti Foto
                                     </label>
                                     <input type="file" name="gambar_ktp">
                                      @if($errors->has('gambar_ktp'))

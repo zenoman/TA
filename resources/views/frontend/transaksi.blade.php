@@ -21,6 +21,20 @@
     @endforeach
     @endsection
 @section('content')
+<style>
+        input[type="submit"], button[type=submit] {
+    background: none repeat scroll 0 0 #5a88ca;
+    border: medium none;
+    color: #fff;
+    padding: 11px 20px;
+    text-transform: uppercase;
+}
+input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
+.single-sidebar input[type="text"] {
+    margin-bottom: 10px;
+    width: 100%;
+}
+    </style>
   <div class="product-big-title-area">
         <div class="container">
             <div class="row">
@@ -132,8 +146,9 @@
                                            
                                             {{@csrf_field()}}
                                                 <p id="order_comments_field" class="form-row notes">
-                                                <label class="" for="order_comments">Keterangan</label>
-                                                <textarea cols="5" rows="2" id="order_comments" class="input-text " name="keterangan" required="required" onfocus="this.value='';"></textarea>
+                                                <label class="" for="order_comments">Keterangan(wajib di isi)</label>
+                                                <textarea cols="5" rows="2" id="order_comments" class="input-text " name="keterangan" required="required" onfocus="this.value='';">
+                                                </textarea>
                                             </p>
                                         </div>
 

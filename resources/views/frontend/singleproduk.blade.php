@@ -42,6 +42,20 @@
     @endsection
 
     @section('content')
+    <style>
+        input[type="submit"], button[type=submit] {
+    background: none repeat scroll 0 0 #5a88ca;
+    border: medium none;
+    color: #fff;
+    padding: 11px 20px;
+    text-transform: uppercase;
+}
+input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
+.single-sidebar input[type="text"] {
+    margin-bottom: 10px;
+    width: 100%;
+}
+    </style>
     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
@@ -177,10 +191,10 @@
                                     
                                     <form action="/tambahkeranjang" method="post" class="cart form-horizontal" >
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2">Warna </label>
+                                            <label class="control-label col-sm-2">Ukuran </label>
                                             <div class="col-sm-10">
-                                                <select name="warna" class="form-control" placeholder="pilih warna">
-                                                <option selected disabled hidden>pilih warna</option>
+                                                <select name="warna" class="form-control" placeholder="pilih ukuran">
+                                                <option selected disabled hidden>pilih ukuran</option>
                                                 @php 
                                                 $warnas = DB::table('tb_barangs')
                                                         ->where('kode',$barang->kode_barang)
