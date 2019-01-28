@@ -85,7 +85,7 @@
                                             <th class="text-center">
                                             Nama Barang</th>
                                             <th class="text-center">
-                                            Ukuran</th>
+                                            Warna</th>
                                             <th class="text-center">
                                             Jumlah</th>
                                             <th class="text-center">Diskon</th>
@@ -153,6 +153,9 @@
                                 </tbody>
                             </table>
                             {{ $cancels->links() }}
+                            <div class="text-right">
+                          <a onclick="window.history.go(-1);" class="btn btn-danger">Kembali</a>  
+                        </div>
                         </div>  
                         <!-- /.panel-body -->
                     </div>

@@ -33,13 +33,11 @@
                         <div class="panel-body">
                             <div class="row">
                                 @if (count($errors) > 0)
-                                 <div class="alert alert-danger">
         <ul>
             @foreach ($errors->all() as $error)
                 <li>{{ $error }}</li>
             @endforeach
         </ul>
-    </div>
     @endif
                                 <div class="col-lg-12">
                                     <form action="/barang" role="form" method="POST" enctype="multipart/form-data">
@@ -81,7 +79,7 @@
                                         <div class="form-group">
                                             <label>Foto</label>
                                             <input type="file" class="form-control" name="photo[]" multiple required accept="image/*" id="photo">
-                                            <p class="help-block">*Foto Tidak Lebih Dari 4 File</p> 
+                                            <p class="help-block">*Foto Tidak Lebih Dari 4 File dan berukuran kurang dari 3Mb</p> 
                                         </div>
                                          @if (session('errorfoto'))
                             <div class="alert alert-danger alert-dismissable">
@@ -125,7 +123,7 @@
                                        <div id="newlink">
                                         <div class="row">
                                         <div class="col-md-6 form-group">
-                                        <label>Ukuran</label>
+                                        <label>Warna</label>
                                         <input type="text" name="warna[]" value="" class="form-control" required>
                                         </div>
                                         <div class="col-md-6 form-group">
@@ -169,7 +167,7 @@
             <hr>
              <div class="row">
                                         <div class="col-md-6 form-group">
-                                        <label>Ukuran</label>
+                                        <label>Warna</label>
                                         <input type="text" name="warna[]" value="" class="form-control" required>
                                         </div>
                                         <div class="col-md-6 form-group">

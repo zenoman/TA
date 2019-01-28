@@ -66,13 +66,13 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-3 col-sm-6">
-                    <div class="single-promo promo1">
+                    <div class="single-promo promo3">
                         <i class="fa fa-child"></i>
                         <p>Harga Murah</p>
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <div class="single-promo promo2">
+                    <div class="single-promo promo3">
                         <i class="fa fa-truck"></i>
                         <p>Pengiriman Rapi</p>
                     </div>
@@ -84,7 +84,7 @@
                     </div>
                 </div>
                 <div class="col-md-3 col-sm-6">
-                    <div class="single-promo promo4">
+                    <div class="single-promo promo3">
                         <i class="fa fa-gift"></i>
                         <p>Produk Berkuwalitas</p>
                     </div>
@@ -166,7 +166,7 @@
                                     </div>
                                     @endforeach
                        
-                        <h2><a>{{$suges->barang}}</a></h2>
+                        <h2>{{$suges->barang}}</h2>
                         <div class="product-carousel-price">
                               @if($suges->diskon > 0)
                                     @php

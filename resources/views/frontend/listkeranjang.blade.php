@@ -80,7 +80,7 @@
                                         <tr>
                                             <th class="product-remove">&nbsp;</th>
                                             <th class="product-name">Nama</th>
-                                            <th class="product-thumbnail">Ukuran</th>
+                                            <th class="product-thumbnail">Warna</th>
                                             <th class="product-price">Harga</th>
                                             <th class="product-quantity">Jumlah</th>
                                             <th class="product-price">

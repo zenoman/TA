@@ -79,7 +79,7 @@
                                             <th class="text-center">
                                             Nama Barang</th>
                                             <th class="text-center">
-                                            Ukuran</th>
+                                            Warna</th>
                                             <th class="text-center">
                                             Jumlah</th>
                                             <th class="text-center">Harga</th>

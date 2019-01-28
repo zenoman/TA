@@ -44,14 +44,14 @@
 
             <div class="row">
                 <div class="col-md-4 col-sm-6">
-                    <div class="single-promo promo1">
+                    <div class="single-promo promo3">
                         <i class="fa fa-child"></i>
                         <p>Admin 1</p>
                         <p>{{$webs->kontak1}}</p>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-6">
-                    <div class="single-promo promo2">
+                    <div class="single-promo promo3">
                         <i class="fa fa-child"></i>
                         <p>Admin 2</p>
                         <p>{{$webs->kontak2}}</p>

@@ -27,9 +27,5 @@ Route::get('warna_item/{id}','Admin\Barangcontroller@warnaItem');
 Route::get('kategori/{id}','Admin\Barangcontroller@perKategori');
 Route::get('kategoriPage/{id}?page={page}','Admin\Barangcontroller@perPageKategori');
 //pemesanan
-Route::post('order/','Admin\transaksiController@orderBarang');
-//Update Profile
-Route::post('updateProfile/','Logincontroller@updateProfile');
-//lihat Belanja
-Route::get('Belanja/{id}','Admin\transaksiController@vBelanja');
+Route::post('pesan/','Admin\transaksiController@orderBarang');
 

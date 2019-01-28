@@ -35,11 +35,6 @@
                                         		@endforeach
                                         	</select>
                                         </div>
-                                       @if($errors->has('email'))
-                                       <div class="alert alert-danger">
-                                        {{ $errors->first('email')}}
-                                         </div>
-                                       @endif
                                         {{csrf_field()}}
                                         <input class="btn btn-primary" type="submit" name="submit" value="lanjut">
                                         <a onclick="window.history.go(-1);" class="btn btn-danger">Kembali</a>

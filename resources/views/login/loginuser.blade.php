@@ -31,7 +31,15 @@ function isNumberKey(evt)
          return true;
       }
   </script>
-    
+    <style>
+        input[type="submit"], button[type=submit] {
+    background: none repeat scroll 0 0 #5a88ca;
+    border: medium none;
+    color: #fff;
+    padding: 11px 20px;
+    text-transform: uppercase;
+}
+    </style>
     <div class="site-branding-area">
         <div class="container">
             <div class="row">
@@ -106,7 +114,7 @@ function isNumberKey(evt)
                             <input type="text" placeholder="Masukan Kode Captcha" class="input-text" name="kodecap" required>
                           
                             {{ @csrf_field() }}
-                            <input type="submit" value="Login">
+                            <input type="submit" value="Login" class="tombol-biru">
                             <button type="button" class="tombol-merah" onclick="window.history.go(-1);" > kembali</button>
                         </form>
                     </div>
@@ -135,7 +143,7 @@ function isNumberKey(evt)
                     @endif
                     <div class="product-content-right">
                         <div class="woocommerce">
-                            <div class="woocommerce-info">Belum Punya Akun ? <a class="showlogin" data-toggle="collapse" href="#login-form-wrap" aria-expanded="false" aria-controls="login-form-wrap">Klik disini untuk membuat</a>
+                            <div class="woocommerce-info">Belum Punya Akun ? <a class="showlogin link-merah" data-toggle="collapse" href="#login-form-wrap" aria-expanded="false" aria-controls="login-form-wrap">Klik disini untuk membuat</a>
                             </div>
 
                             <form id="login-form-wrap" class="login collapse" method="post" action="{{url('/login/register')}}" enctype="multipart/form-data">

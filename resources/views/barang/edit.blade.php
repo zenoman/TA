@@ -52,8 +52,8 @@
                                 <input type="hidden" name="kode_barang" value="{{$kode}}">
                                 <input type="hidden" name="jumlah_file" value="{{4-$jumlah_foto}}">
                                 <label>Foto</label>
-                                <input type="file" class="form-control" name="photo[]" multiple required accept="image/*">
-                                <p class="help-block">*Foto Tidak Boleh Lebih Dari {{4-$jumlah_foto}} File</p>
+                                <input type="file" class="form-control" name="photo[]" multiple required id="photo">
+                                <p class="help-block">*Foto Tidak Boleh Lebih Dari {{4-$jumlah_foto}} File dan ukuran tidak lebih dari 3mb</p>
                             </div>
                             @if (session('errorfoto'))
                             <div class="alert alert-danger alert-dismissable">
@@ -142,15 +142,15 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           <h4>Edit Variasi Ukuran & Stok</h4>
+                           <h4>Edit Variasi Warna & Stok</h4>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div>
                               <form class="form-inline" action="{{url('/barang/warna')}}" method="post">
                                 <div class="form-group">
-                                  <label for="email">Ukuran:</label>
-                                  <input type="text" class="form-control" placeholder="Masukan Ukuran" name="warna" required>
+                                  <label for="email">Warna:</label>
+                                  <input type="text" class="form-control" placeholder="Masukan Warna" name="warna" required>
                                 </div>
                                 <div class="form-group">
                                   <label for="pwd">Stok:</label>
@@ -175,7 +175,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Ukuran</th>
+                                            <th>Warna</th>
                                             <th>Stok</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -282,6 +282,25 @@
     .catch( error => {
         console.log( error );
     } );
+     $('#photo').change(function(e){
+    var imageSizeArr = 0;
+    var imageSize = document.getElementById('photo');
+    var imageCount = imageSize.files.length;
+    for (var i = 0; i < imageSize.files.length; i++)
+    {
+         var imageSiz = imageSize.files[i].size;
+         var imagename = imageSize.files[i].name;
+         if (imageSiz > 3000000) {
+             $('#test').text('3');
+             var imageSizeArr = 1;
+         }
+         if (imageSizeArr == 1)
+         {
+             alert('Maaf, gambar "'+imagename+'" terlalu besar / memiliki ukuran lebih dari 3MB');
+             $('#photo').val('');
+         }
+     }
+ }); 
     </script>
         @endsection
 

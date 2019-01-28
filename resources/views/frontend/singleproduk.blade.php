@@ -177,10 +177,10 @@
                                     
                                     <form action="/tambahkeranjang" method="post" class="cart form-horizontal" >
                                         <div class="form-group">
-                                            <label class="control-label col-sm-2">Ukuran </label>
+                                            <label class="control-label col-sm-2">Warna </label>
                                             <div class="col-sm-10">
-                                                <select name="warna" class="form-control" placeholder="pilih ukuran">
-                                                <option selected disabled hidden>pilih ukuran</option>
+                                                <select name="warna" class="form-control" placeholder="pilih warna">
+                                                <option selected disabled hidden>pilih warna</option>
                                                 @php 
                                                 $warnas = DB::table('tb_barangs')
                                                         ->where('kode',$barang->kode_barang)

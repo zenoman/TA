@@ -65,7 +65,7 @@
                         <form action="{{url('/cari')}}" method="post">
                             <input type="text" placeholder="Cari Berdasarkan Nama" name="cari" required>
                             {{csrf_field()}}
-                            <input type="submit" value="Cari">
+                            <button type="submit" class="tombol-merah">Cari</button>
                         </form>
                     </div>
                     
@@ -74,7 +74,7 @@
                         <h2 class="sidebar-title">Kategori</h2>
                         <ul>
                            @foreach($kategoris as $kategori)
-                            <li><a href="{{url('/semuaproduk/'.$kategori->id.'/kategori')}}">{{$kategori->kategori}}</a></li>
+                            <li><a href="{{url('/semuaproduk/'.$kategori->id.'/kategori')}}" class="link-merah">{{$kategori->kategori}}</a></li>
                             @endforeach
                         </ul>
                     </div>
@@ -97,7 +97,7 @@
                                 <img src="{{asset('img/barang/'.$foto->nama)}}" alt="">
                         </div>
                         @endforeach
-                        <h2><a href="">{{$barang->barang}}</a></h2>
+                        <h2>{{$barang->barang}}</h2>
                         <div class="product-carousel-price">
                              @if($barang->diskon > 0)
                                     @php
