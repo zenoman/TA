@@ -46,7 +46,8 @@
                             <tr>
                                <td>Pembeli</td>
                                 <td>&nbsp;:&nbsp;
-                                 @php
+                                  <span id="username_asli">
+                                      @php
                                  $datauser = DB::table('tb_users')
                                  ->where('id',$kd->iduser)
                                  ->get();
@@ -54,6 +55,8 @@
                                  @foreach($datauser as $usr)
                                     {{$usr->username}}
                                  @endforeach
+                                  </span>
+                               
                                 </td>
                             </tr>
                             <tr>
@@ -71,11 +74,19 @@
                             </tr>
                             <tr>
                                 <td>No Telp</td>
-                                <td>&nbsp;:&nbsp;{{$kd->telp}}</td>
+                                <td>&nbsp;:&nbsp;
+                                  <span id="telp_asli">
+                                    {{$kd->telp}}
+                                  </span>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Alamat Tujuan</td>
-                                <td>&nbsp;:&nbsp;{{$kd->alamat_tujuan}}</td>
+                                <td>&nbsp;:&nbsp;
+                                  <span id="alamat_asli">
+                                    {{$kd->alamat_tujuan}}
+                                  </span>
+                                </td>
                             </tr>
                             <tr>
                                 <td>Keterangan</td>
@@ -209,12 +220,17 @@
                 </table>
                 @endforeach
                 <hr>
+                @foreach($websettings as $webset)
                 <p align="center">
-                  <b>Dvina Collection</b><br>
-                <b>Pusat Hijab Terbaru, Termurah & Berkwalitas</b><br>
-                <b>Pasar Bandar No 155 Mojoroto Kediri</b><br>
-                 WA/Telp&nbsp;:&nbsp;081333811979 || Fb&nbsp;:&nbsp;koleksi D'VINA || Instagram&nbsp;:&nbsp;@dvina_collection
+                <b>{{$webset->webName}}</b><br>
+                <b>Pusat Grosir pakaian Terbaru, Termurah & Berkwalitas</b><br>
+                <b>{{$webset->alamat}}</b><br>
+                 kontak 1&nbsp;:&nbsp;{{$webset->kontak1}} ||
+                 kontak 2&nbsp;:&nbsp;{{$webset->kontak2}} ||
+                 kontak 3&nbsp;:&nbsp;{{$webset->kontak3}} 
                 </p>
+                @endforeach
+                
             </div>
         </div>
         <div id="hidden_div" style="display: none;">
@@ -450,13 +466,19 @@
         var isgood = confirm('Apakah data lembar pengiriman benar ?');
         if(isgood){
             if($('#penerima').val()!=''){
-                $('#cetakpenerima').html($('#penerima').val());
+              $('#cetakpenerima').html($('#penerima').val());
+            }else{
+              $('#cetakpenerima').html($('#username_asli').html());
             }
             if($('#telfonpenerima').val()!=''){
                 $('#cetaktelp').html($('#telfonpenerima').val());
+            }else{
+              $('#cetaktelp').html($('#telp_asli').html());
             }
             if($('#alamat').val()!=''){
-                $('#cetakalamat').html($('#alamat').val());
+              $('#cetakalamat').html($('#alamat').val());
+            }else{
+              $('#cetakalamat').html($('#alamat_asli').html());
             }
         var divToPrint=document.getElementById('hidden_div_pengiriman');
         var newWin=window.open('','Print-Window');

@@ -57,9 +57,9 @@ function isNumberKey(evt)
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                            <label>Cari Warna</label>
+                                            <label>Cari Ukuran</label>
                                     <select class="form-control" id="cariwarna">
-                                        <option value="ph" data-stok="" selected disabled hidden>pilih warna</option>
+                                        <option value="ph" data-stok="" selected disabled hidden>pilih Ukuran</option>
                                     </select>
                                         </div>
                                             </div>
@@ -112,7 +112,7 @@ function isNumberKey(evt)
                                     <tr>
                                         <th class="text-center">#</th>
                                         <th class="text-center">Nama Barang</th>
-                                        <th class="text-center">Warna</th>
+                                        <th class="text-center">Ukuran</th>
                                         <th class="text-right">Harga</th>
                                         <th class="text-center">Jumlah</th>
                                         <th class="text-center">Diskon</th>
@@ -159,15 +159,17 @@ function isNumberKey(evt)
                     <td width="49%">
                         <table width="100%" style="margin-bottom: 5px;">
                             <tr>
-                                <td width="60%">
                                 @foreach($websettings as $webset)
+                                <td width="60%">
+                                
                                 <img width="65%" src="{{asset('img/setting/'.$webset->logo)}}">
-                                @endforeach
+                                
                                 </td>
                                 <td style="border: 1px solid black;" width="40%">
                                     <p style="font-size: 10;margin-left: 2%;margin-top: 2%;">Tgl :{{date('d/m/Y')}}</p>
-                                    <p style="font-size: 10;margin-left: 2%;margin-bottom: 2%;">Tuan/Toko : Dvina Collection</p>
-                                </td>   
+                                    <p style="font-size: 10;margin-left: 2%;margin-bottom: 2%;">Tuan/Toko : {{$webset->webName}}</p>
+                                </td>
+                                @endforeach   
                             </tr>
                         </table>
                         <table width="100%" style="border-collapse:collapse;border: 1px solid black;margin-bottom: 5px;">
@@ -228,7 +230,7 @@ function isNumberKey(evt)
                         <table width="100%" style="border-collapse:collapse;border: 1px solid black;margin-bottom: 5px;">
                             <tr>
                                 <td align="center" bgcolor="#000000">
-                                    <p style="color: white; font-size: 8;">GROSIR|ECER|DROPSHIP|PUSAT HIJAB TERMURAH, TERBARU & BERKUALITAS DI KOTA KEDIRI</p>
+                                    <p style="color: white; font-size: 8;">GROSIR|ECER|DROPSHIP|PUSAT PAKAIAN TERMURAH, TERBARU & BERKUALITAS DI TULUNGAGUNG</p>
                                     
                                 </td>
                             </tr>
@@ -240,15 +242,17 @@ function isNumberKey(evt)
                     <td width="49%" bgcolor="#ffff99">
                          <table width="100%" style="margin-bottom: 5px;">
                             <tr>
-                                <td width="60%">
                                 @foreach($websettings as $webset)
+                                <td width="60%">
+                                
                                 <img width="65%" src="{{asset('img/setting/'.$webset->logo)}}">
-                                @endforeach
+                                
                                 </td>
                                 <td style="border: 1px solid black;" width="40%">
                                     <p style="font-size: 10;margin-left: 2%;margin-top: 2%;">Tgl :{{date('d/m/Y')}}</p>
-                                    <p style="font-size: 10;margin-left: 2%;margin-bottom: 2%;">Tuan/Toko : Dvina Collection</p>
-                                </td>   
+                                    <p style="font-size: 10;margin-left: 2%;margin-bottom: 2%;">Tuan/Toko : {{$webset->webName}}</p>
+                                </td>
+                                @endforeach  
                             </tr>
                         </table>
                         <table width="100%" style="border-collapse:collapse;border: 1px solid black;margin-bottom: 5px;">
@@ -309,7 +313,7 @@ function isNumberKey(evt)
                         <table width="100%" style="border-collapse:collapse;border: 1px solid black;margin-bottom: 5px;">
                             <tr>
                                 <td align="center" bgcolor="#000000">
-                                    <p style="color: white; font-size: 8;">GROSIR|ECER|DROPSHIP|PUSAT HIJAB TERMURAH, TERBARU & BERKUALITAS DI KOTA KEDIRI</p>
+                                    <p style="color: white; font-size: 8;">GROSIR|ECER|DROPSHIP|PUSAT PAKAIAN TERMURAH, TERBARU & BERKUALITAS DI TULUNGAGUNG</p>
                                     
                                 </td>
                             </tr>

@@ -12,6 +12,7 @@ use App\Exports\pemasukanlain;
 use App\Exports\transaksilangsung;
 use App\Exports\detailtransaksilangsung;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Session;
 
 class laporanController extends Controller
 {
@@ -55,6 +56,7 @@ class laporanController extends Controller
         return view('laporan/pemasukanlain',['data'=>$data,'websettings'=>$webinfo,'bulan'=>$tanggalnya[0],'tahun'=>$tanggalnya[1],'data3'=>$data->appends(request()->input())]);
     }
     public function pilihpemasukanlain(){
+        if(Session::get('level') != 'admin'){
         $data = DB::table('tb_tambahstoks')
         ->select(DB::raw('MONTH(tgl) as bulan, YEAR(tgl) as tahun'))
         ->where('aksi','kurangi')
@@ -64,6 +66,10 @@ class laporanController extends Controller
         ->get();
         $websetting = DB::table('settings')->limit(1)->get();
         return view('laporan/pilihpemasukanlain',['data'=>$data,'websettings'=>$websetting]);
+        }else{
+            return redirect('/dashboard')
+            ->with('statuslogin','Maaf, Anda tidak punya akses');
+        }
     }
     public function exsportdetailpemasukan($bulan,$tahun){
         $namafile = "laporan_detail_pemasukan_bulan_".$bulan."_tahun_".$tahun.".xlsx";
@@ -99,6 +105,7 @@ class laporanController extends Controller
         return view('laporan/detailpemasukan',['data'=>$data,'websettings'=>$webinfo,'bulan'=>$tanggalnya[0],'tahun'=>$tanggalnya[1],'data3'=>$data->appends(request()->input())]);
     }
     public function pilihdetailpemasukan(){
+         if(Session::get('level') != 'admin'){
         $data = DB::table('tb_details')
         ->select(DB::raw('MONTH(tgl) as bulan, YEAR(tgl) as tahun'))
         ->whereNotNull('faktur')
@@ -108,6 +115,10 @@ class laporanController extends Controller
         ->get();
         $webinfo = DB::table('settings')->limit(1)->get();
         return view('laporan/pilihdetailpemasukan',['data'=>$data,'websettings'=>$webinfo]);
+         }else{
+            return redirect('/dashboard')
+            ->with('statuslogin','Maaf, Anda tidak punya akses');
+        }
     }
     public function exsportpemasukan($bulan, $tahun){
     $namafile = "laporan_pemasukan_bulan_".$bulan."_tahun_".$tahun.".xlsx";
@@ -150,7 +161,8 @@ class laporanController extends Controller
         return view('laporan/pemasukan',['data'=>$data,'websettings'=>$webinfo,'bulan'=>$tanggalnya[0],'tahun'=>$tanggalnya[1],'data3'=>$data->appends(request()->input())]);
     }
     public function pilihpemasukan(){
-        $data = DB::table('tb_transaksis')
+    if(Session::get('level') != 'admin'){
+       $data = DB::table('tb_transaksis')
         ->select(DB::raw('MONTH(tgl) as bulan, YEAR(tgl) as tahun'))
         ->where('status','=','diterima')
         ->orwhere('status','=','sukses')
@@ -160,9 +172,15 @@ class laporanController extends Controller
         ->get();
         $webinfo = DB::table('settings')->limit(1)->get();
         return view('laporan/pilihpemasukan',['data'=>$data,'websettings'=>$webinfo]);
+        }else{
+            return redirect('/dashboard')
+            ->with('statuslogin','Maaf, Anda tidak punya akses');
+        }
     }
     public function pilihpengeluaran(){
-    	$data = DB::table('tb_tambahstoks')
+    	
+        if(Session::get('level') != 'admin'){
+            $data = DB::table('tb_tambahstoks')
         ->select(DB::raw('MONTH(tgl) as bulan, YEAR(tgl) as tahun'))
         ->where('aksi','tambah')
         ->groupby('bulan')
@@ -170,7 +188,11 @@ class laporanController extends Controller
         ->orderby('tgl','desc')
         ->get();
         $websetting = DB::table('settings')->limit(1)->get();
-    	return view('laporan/pilihpengeluaran',['data'=>$data,'websettings'=>$websetting]);
+        return view('laporan/pilihpengeluaran',['data'=>$data,'websettings'=>$websetting]);
+        }else{
+            return redirect('/dashboard')
+            ->with('statuslogin','Maaf, Anda tidak punya akses');
+        }
     }
 
     public function exsportpengeluaran($bulan, $tahun){
@@ -213,7 +235,8 @@ class laporanController extends Controller
         return view('laporan/cetakpengeluaran',['data'=>$data,'bulan'=>$bulan,'tahun'=>$tahun,'total'=>$total]);
     }
     public function pilihtransaksilangsung(){
-        $webinfo = DB::table('settings')->limit(1)->get();
+        if(Session::get('level') != 'admin'){
+             $webinfo = DB::table('settings')->limit(1)->get();
         $data = DB::table('tb_transaksis')
         ->select(DB::raw('MONTH(tgl) as bulan,YEAR(tgl) as tahun'))
         ->where('metode','langsung')
@@ -222,6 +245,11 @@ class laporanController extends Controller
         ->orderby('tgl','desc')
         ->get();
         return view('laporan/pilihtransaksilangsung',['websettings'=>$webinfo,'data'=>$data]);
+        }else{
+            return redirect('/dashboard')
+            ->with('statuslogin','Maaf, Anda tidak punya akses');
+        }
+       
     }
 
     public function tampiltransaksilangsung(Request $request){
@@ -263,6 +291,7 @@ class laporanController extends Controller
     }
 
     public function pilihdetailtransaksi(){
+        if(Session::get('level') != 'admin'){
         $webinfo = DB::table('settings')->limit(1)->get();
         $data = DB::table('tb_details')
         ->select(DB::raw('MONTH(tgl) as bulan,YEAR(tgl) as tahun'))
@@ -272,6 +301,10 @@ class laporanController extends Controller
         ->orderby('tgl','desc')
         ->get();
         return view('laporan/pilihdetailtransaksi',['websettings'=>$webinfo,'data'=>$data]);
+         }else{
+            return redirect('/dashboard')
+            ->with('statuslogin','Maaf, Anda tidak punya akses');
+        }
     }
     public function detailtransaksi(Request $request){
         $webinfo = DB::table('settings')->limit(1)->get();

@@ -149,6 +149,7 @@
                             <a href="{{url('/backup')}}"><i class="fa fa-download fa-fw"></i> Backup Data</a>
                         </li>
                         @endif
+                        @if(Session::get('level') != 'admin')
                        <li>
                             <a href="#"><i class="fa fa-file fa-fw"></i> Laporan<span class="fa arrow"></span></a>
                             <ul class="nav nav-second-level collapse">
@@ -173,7 +174,6 @@
                             </ul>
                             <!-- /.nav-second-level -->
                         </li>
-                        @if(Session::get('level') != 'admin')
                         <li>
                             <a href="{{url('/omset')}}"><i class="fa fa-download fa-fw"></i> Omset</a>
                         </li>

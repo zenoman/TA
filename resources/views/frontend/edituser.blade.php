@@ -348,19 +348,19 @@ input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
 
     
 
-  <div class="footer-bottom-area">
+ <div class="footer-bottom-area">
         <div class="container">
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="copyright">
-                        <p>&copy; 2015 uCommerce. All Rights Reserved. <a href="http://www.freshdesignweb.com" target="_blank">freshDesignweb.com</a></p>
+                        <p>&copy; 2018 <a class="llink">TASTORE</a>. All Rights Reserved. <a href="#" target="_blank">Joyoboyo Intermedia</a></p>
                     </div>
                 </div>
                 
                
             </div>
         </div>
-    </div> 
+    </div>
    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">

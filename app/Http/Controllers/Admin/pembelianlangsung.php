@@ -22,7 +22,7 @@ class pembelianlangsung extends Controller
         ->max('faktur');
 
         if(!$kode){
-            $finalkode = "DVN".$tanggal."-".$kodeuser."-000001";
+            $finalkode = "STA".$tanggal."-".$kodeuser."-000001";
         }else{
             $caridata = DB::table('tb_transaksis')
             ->where('faktur',$kode)->limit(1)->get();
@@ -32,7 +32,7 @@ class pembelianlangsung extends Controller
                 }else{
                     $newkode    = explode("-", $kode);
             $nomer      = sprintf("%06s",$newkode[2]+1);
-            $finalkode  = "DVN".$tanggal."-".$kodeuser."-".$nomer;
+            $finalkode  = "STA".$tanggal."-".$kodeuser."-".$nomer;
                 }
             }
             

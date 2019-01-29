@@ -85,7 +85,7 @@
                                             <th class="text-center">
                                             Nama Barang</th>
                                             <th class="text-center">
-                                            Warna</th>
+                                            Ukuran</th>
                                             <th class="text-center">
                                             Jumlah</th>
                                             <th class="text-center">Diskon</th>

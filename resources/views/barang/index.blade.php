@@ -96,7 +96,9 @@
                                    		<td>{{$row->kode_barang}}</td>
                                         <td>{{$row->barang}}</td>
                                         <td>{{$row->kategori}}</td>
-                                        <td>{{$row->harga_barang}}</td>
+                                        <td>
+                                        {{"Rp ". number_format($row->harga_barang,0,',','.')}}
+                                        </td>
                                         <td>
                                             @if($row->diskon>0)
                                             {{$row->diskon." %"}}

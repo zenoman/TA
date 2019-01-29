@@ -78,7 +78,7 @@ $(document).ready(function(){
                     	.attr('selected','')
                     	.attr('disabled','')
                     	.attr('hidden','')
-                    	.text('pilih warna')); 
+                    	.text('pilih ukuran')); 
 				$('#stok').val('');
 				$('#jumlah').val('');
 				return {
@@ -239,7 +239,7 @@ $(document).ready(function(){
                    .attr('selected','')
                    .attr('disabled','')
                    .attr('hidden','')
-                   .text('pilih warna')); 
+                   .text('pilih ukuran')); 
 		$('#stok').val('');
 		$('#jumlah').val('');
 		$('#nama_barang').val('');

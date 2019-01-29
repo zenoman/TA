@@ -49,7 +49,7 @@ class BarangImport implements ToCollection, WithHeadingRow
                 DB::table('tb_barangs')->insert([
                 'kode'=> $newkode,
                 'stok' => 0,
-                'warna' => $row['warna'],
+                'warna' => $row['ukuran'],
                 'barang_jenis'=>$row['nama_barang']
                 ]);
             $id = DB::getPdo()->lastInsertId();

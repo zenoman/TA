@@ -123,7 +123,7 @@
                                        <div id="newlink">
                                         <div class="row">
                                         <div class="col-md-6 form-group">
-                                        <label>Warna</label>
+                                        <label>Ukuran</label>
                                         <input type="text" name="warna[]" value="" class="form-control" required>
                                         </div>
                                         <div class="col-md-6 form-group">
@@ -167,7 +167,7 @@
             <hr>
              <div class="row">
                                         <div class="col-md-6 form-group">
-                                        <label>Warna</label>
+                                        <label>Ukuran</label>
                                         <input type="text" name="warna[]" value="" class="form-control" required>
                                         </div>
                                         <div class="col-md-6 form-group">

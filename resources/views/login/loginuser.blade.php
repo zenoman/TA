@@ -287,10 +287,10 @@ function isNumberKey(evt)
                                         @endif
                                 </p>
                                 <p class="form-row form-row-first">
-                                    <label>Foto KTP
+                                    <label>Foto
                                     </label>
                                     <input type="file" name="gambar_ktp" required accept="image/*">
-                                    <p class="help-block text-left">Foto KTP wajib di isi</p>
+                                    <p class="help-block text-left">Foto wajib di isi</p>
                                      @if($errors->has('gambar_ktp'))
                                         <div class="alert alert-danger">
                                         {{ $errors->first('gambar_ktp')}}
@@ -332,7 +332,7 @@ function isNumberKey(evt)
             <div class="row">
                 <div class="col-md-12 text-center">
                     <div class="copyright">
-                        <p>&copy; 2018 <a class="llink" onclick="login()">Devina</a>. All Rights Reserved. <a href="#" target="_blank">Joyoboyo Intermedia</a></p>
+                        <p>&copy; 2018 <a class="llink" onclick="login()">TASTORE</a>. All Rights Reserved. <a href="#" target="_blank">Joyoboyo Intermedia</a></p>
                     </div>
                 </div>
                 

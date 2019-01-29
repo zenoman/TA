@@ -114,13 +114,14 @@
                                             <span class="input-group-addon">Rp. </span>
                                             <input type="text" onkeypress="return isNumberKey(event)" class="form-control" name="harga_barang" value="{{$row->harga_barang}}" required>
                                         </div>
+                                        @if(Session::get('level')!='admin')
                                          <label>Harga Beli Barang</label>
                                         <div class="form-group input-group">
                                           
                                             <span class="input-group-addon">Rp. </span>
                                             <input type="text" onkeypress="return isNumberKey(event)" class="form-control" name="harga_beli" value="{{$row->harga_beli}}" required>
                                         </div>
-
+                                        @endif
                                         <label>Diskon Barang</label>
                                         <div class="form-group input-group">
                                             
@@ -142,15 +143,15 @@
                     </div>
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                           <h4>Edit Variasi Warna & Stok</h4>
+                           <h4>Edit Variasi Ukuran & Stok</h4>
                         </div>
                         <!-- /.panel-heading -->
                         <div class="panel-body">
                             <div>
                               <form class="form-inline" action="{{url('/barang/warna')}}" method="post">
                                 <div class="form-group">
-                                  <label for="email">Warna:</label>
-                                  <input type="text" class="form-control" placeholder="Masukan Warna" name="warna" required>
+                                  <label for="email">Ukuran:</label>
+                                  <input type="text" class="form-control" placeholder="Masukan Ukuran" name="warna" required>
                                 </div>
                                 <div class="form-group">
                                   <label for="pwd">Stok:</label>
@@ -175,7 +176,7 @@
                                     <thead>
                                         <tr>
                                             <th>#</th>
-                                            <th>Warna</th>
+                                            <th>Ukuran</th>
                                             <th>Stok</th>
                                             <th>Aksi</th>
                                         </tr>
@@ -205,7 +206,7 @@
                                             <div class="row">
                                                 <div class="col-md-12">
                                         <div class="form-group">
-                                            <label>warna</label>
+                                            <label>Ukuran</label>
                                             <input class="form-control" name="warna" type="text" required value="{{$war->warna}}">
                                         </div>
                                         <input type="hidden" name="kode" value="{{$kode}}">
@@ -221,7 +222,7 @@
                                         <div class="form-group">
                                             <label>Keterangan</label>
                                             <textarea class="form-control" name="deskripsi" rows="3"></textarea>
-                                            <p class="help-block">Masukan Keterangan kenapa anda mengedit variasi warna ini.</p>
+                                            <p class="help-block">Masukan Keterangan kenapa anda mengedit variasi ukuran ini.</p>
                                         </div>
                                         <div class="form-group">
                                             <label>Total Harga (opsional) </label>
