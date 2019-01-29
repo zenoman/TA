@@ -237,11 +237,11 @@ class Catalogcontroller extends Controller
         ->where([['faktur','like','%'.$tanggalsekarang.'%'],['metode','=','pesan']])
         ->max('faktur');
         if($kode != NULL){
-            $numkode = substr($kode, 11);
+            $numkode = substr($kode, 8);
             $countkode = $numkode+1;
-            $newkode = "DVINA".$tanggalsekarang.sprintf("%05s", $countkode);
+            $newkode = "ST".$tanggalsekarang.sprintf("%05s", $countkode);
         }else{
-            $newkode = "DVINA".$tanggalsekarang."00001";
+            $newkode = "ST".$tanggalsekarang."00001";
         }
         $tgl = date("Y-m-d");
         $total = $request->total;
