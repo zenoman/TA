@@ -222,7 +222,7 @@ input[type="submit"]:hover, button[type=submit]:hover {background-color: #222}
                                         <input type="hidden" name="kode_barang" value="{{$barang->kode_barang}}">
                                         {{ csrf_field() }}
                                         
-                                        <div class="pull-right">
+                                        <div class="text-center">
 
                                         @if(Session::get('user_name'))
                                         <button type="submit">Masukan Keranjang</button>
