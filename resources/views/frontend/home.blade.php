@@ -186,13 +186,7 @@
                 
             </div>
         </div>
-    </div> <!-- End main content area -->
-        
-    <div class="single-product-area">
-        
-    </div>  
-    <!-- Button trigger modal -->
-
+    </div>
 
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -212,6 +206,25 @@
     </div>
   </div>
 </div>
+<div class="footer-top-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12 col-sm-12">
+                    <div class="footer-about-us text-center">
+                        <h2>Temukan <span>Kami</span></h2>
+                        <p>Dapatkan versi android <a href="">disini</a>, atau kunjungi sosial media kami</p>
+                        <div class="footer-social">
+                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
+                            <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
+                            <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </div> <!-- End footer top area -->
    @endsection
     
     
