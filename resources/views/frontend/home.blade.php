@@ -94,7 +94,6 @@
     </div> <!-- End promo area -->
     
     <div class="maincontent-area">
-        <div class="zigzag-bottom"></div>
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -142,10 +141,6 @@
                 </div>
             </div>
         </div>
-    </div> <!-- End main content area -->
-        
-    <div class="single-product-area">
-        <div class="zigzag-bottom"></div>
         <div class="container">
             <h2 class="section-title">Anda Mungkin Suka</h2>
             <div class="row">
@@ -191,6 +186,10 @@
                 
             </div>
         </div>
+    </div> <!-- End main content area -->
+        
+    <div class="single-product-area">
+        
     </div>  
     <!-- Button trigger modal -->
 
