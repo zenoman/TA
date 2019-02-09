@@ -50,7 +50,8 @@ class Settingcontroller extends Controller
             $lower_file_name=strtolower($nameico);
             $replace_space=str_replace(' ', '-', $lower_file_name);
             $nameicon=time().'-'.$replace_space;
-            $destination=public_path('img/setting');
+            //$destination=public_path('img/setting');
+            $destination = base_path('../public_html/img/setting');
             $request->file('ico')->move($destination,$nameicon);
             }
 
@@ -61,7 +62,8 @@ class Settingcontroller extends Controller
             $lower_file_name=strtolower($namelog);
             $replace_space=str_replace(' ', '-', $lower_file_name);
             $namelogo=time().'-'.$replace_space;
-            $destination=public_path('img/setting');
+            //$destination=public_path('img/setting');
+            $destination = base_path('../public_html/img/setting');
             $request->file('logo')->move($destination,$namelogo);
             }
             DB::table('settings')
@@ -89,7 +91,8 @@ class Settingcontroller extends Controller
             $lower_file_name=strtolower($nameico);
             $replace_space=str_replace(' ', '-', $lower_file_name);
             $nameicon=time().'-'.$replace_space;
-            $destination=public_path('img/setting');
+            //$destination=public_path('img/setting');
+            $destination = base_path('../public_html/img/setting');
             $request->file('ico')->move($destination,$nameicon);
             }
 
@@ -117,7 +120,8 @@ class Settingcontroller extends Controller
             $lower_file_name=strtolower($namelog);
             $replace_space=str_replace(' ', '-', $lower_file_name);
             $namelogo=time().'-'.$replace_space;
-            $destination=public_path('img/setting');
+            //$destination=public_path('img/setting');
+            $destination = base_path('../public_html/img/setting');
             $request->file('logo')->move($destination,$namelogo);
             }
 

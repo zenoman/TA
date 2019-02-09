@@ -10,35 +10,17 @@ use Illuminate\Support\Facades\DB;
 
 class Slidercontroller extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
         $websetting = DB::table('settings')->limit(1)->get();
         $sliders = slider::all();
         return view('slider/index',['sliders'=>$sliders,'websettings'=>$websetting]);
     }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
         $websetting = DB::table('settings')->limit(1)->get();
         return view('slider/input',['websettings'=>$websetting]);
     }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
         $roles = [
@@ -54,7 +36,8 @@ class Slidercontroller extends Controller
         $lower_file_name=strtolower($namaexs);
         $replace_space=str_replace(' ','-',$lower_file_name);
         $namagambar=time().'-'.$replace_space;
-        $destination = public_path('img/slider');
+        //$destination = public_path('img/slider');
+        $destination = base_path('../public_html/img/slider');
         $request->file('gambar')->move($destination,$namagambar);
     }else{
         $namagambar='';
@@ -119,7 +102,8 @@ class Slidercontroller extends Controller
             $lower_file_name=strtolower($namaexs);
             $replace_space=str_replace(' ','-',$lower_file_name);
             $namagambar=time().'-'.$replace_space;
-            $destination = public_path('img/slider');
+            //$destination = public_path('img/slider');
+            $destination = base_path('../public_html/img/slider');
             $request->file('gambar')->move($destination,$namagambar);
             
             slider::find($id)->update([
