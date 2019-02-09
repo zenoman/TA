@@ -4,7 +4,7 @@ namespace App\Http\Controllers\Admin;
 ini_set('max_execution_time', 180);
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\support\Facades\File;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;

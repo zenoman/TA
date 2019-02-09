@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin;
 ini_set('max_execution_time', 180);
 use App\Http\Controllers\Controller;
-use Illuminate\support\Facades\File;
+use Illuminate\Support\Facades\File;
 use Illuminate\Http\Request;
 use App\models\slider;
 use Illuminate\Support\Facades\DB;
