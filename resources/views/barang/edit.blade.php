@@ -52,7 +52,7 @@
                                 <input type="hidden" name="kode_barang" value="{{$kode}}">
                                 <input type="hidden" name="jumlah_file" value="{{4-$jumlah_foto}}">
                                 <label>Foto</label>
-                                <input type="file" class="form-control" name="photo[]" multiple required id="photo">
+                                <input type="file" class="form-control" name="photo[]" multiple required id="photo" accept="image/*">
                                 <p class="help-block">*Foto Tidak Boleh Lebih Dari {{4-$jumlah_foto}} File dan ukuran tidak lebih dari 3mb</p>
                             </div>
                             @if (session('errorfoto'))

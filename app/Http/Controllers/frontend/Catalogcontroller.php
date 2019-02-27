@@ -79,9 +79,8 @@ class Catalogcontroller extends Controller
     {
         $websetting = DB::table('settings')->limit(1)->get();
         foreach ($websetting as $ws) {
-            $day = date("d")+$ws->max_tgl;
+            $day =  date('Y-m-d', strtotime(' + '.$ws->max_tgl.' days'));
         }
-        
 
         $datawarna = explode("-", $request->warna);
         $cariwarnas = DB::table('tb_barangs')
@@ -109,7 +108,7 @@ class Catalogcontroller extends Controller
                 'idwarna'=>$datawarna[0],
                 'iduser'=>Session::get('user_id'),
                 'tgl'=>date("Y-m-d"),
-                'tgl_kadaluarsa'=>date("Y")."-".date("m")."-".$day,
+                'tgl_kadaluarsa'=>$day,
                 'kode_barang'=>$request->kode_barang,
                 'barang'=>$nama,
                 'harga'=>$harga,
