@@ -58,6 +58,7 @@
                                     <?php $i = 1;?>
                                     @foreach($admin as $row)
                                     <?php $no = $i++;?>
+                                    @if(Session::get('iduser')!=$row->id)
                                     <tr>
                                         <td>{{$no}}</td>
                                         <td>{{$row->nama}}</td>
@@ -65,10 +66,12 @@
                                         <td>{{$row->telp}}</td>
                                         <td>{{$row->level}}</td>
                                         <td class="text-center">
-                                            @if(Session::get('level') == 'super_admin')
+                                        	
+                                        @if(Session::get('level') == 'super_admin')
                                             @if($row->level=='programer')
                                             -
                                         @else
+                                        
                                         <a href="{{url('admin/'.$row->id.'/changepass')}} " class="btn btn-warning btn-sm">
                                         <i class="fa fa-key"></i> Ganti Password</a>
 
@@ -86,8 +89,10 @@
                                         <a onclick="return confirm('Hapus Data ?')" href="{{url('admin/'.$row->id.'/delete')}}" class="btn btn-danger btn-sm">
                                         <i class="fa fa-trash-o"></i> Hapus</a>
                                                      @endif
+                                                     
                                         </td>
                                     </tr>
+                                    @endif
                                    @endforeach
                                 </tbody>
                             </table>
