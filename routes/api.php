@@ -27,5 +27,29 @@ Route::get('warna_item/{id}','Admin\Barangcontroller@warnaItem');
 Route::get('kategori/{id}','Admin\Barangcontroller@perKategori');
 Route::get('kategoriPage/{id}?page={page}','Admin\Barangcontroller@perPageKategori');
 //pemesanan
-Route::post('pesan/','Admin\transaksiController@orderBarang');
+Route::post('order/','Admin\transaksiController@orderBarang');
+//Update Profile
+Route::post('updateProfile/','Logincontroller@updateProfile');
+//Register
+Route::post('register/','Logincontroller@registerUser');
+//update Pass
+Route::post('updatePas/','Logincontroller@UpdatePass');
+//updateProfile
+Route::post('updateLeng/','Logincontroller@UpdateLengkap');
+//view kEranjang
+Route::get('keranjang/{id}','Admin\transaksiController@vBelanja');
+//hapus Keranjang
+Route::post("hapusKeranjang",'Admin\transaksiController@hapusk');
+//total keranjang
+Route::get("totalk/{id}",'Admin\transaksiController@totalk');
+//ambil Settting
+Route::get("setting",'Admin\Barangcontroller@settingA');
+//ambil Bank
+Route::get("bank",'Admin\transaksiController@vBank');
+//transaksi
+Route::post("transaksi",'Admin\transaksiController@transaksibeli');
+//kode
+Route::get("kodes",'Admin\transaksiController@carikode');
+//view transaksi
+Route::get("vtrans/{id}",'Admin\transaksiController@vTrans');
 

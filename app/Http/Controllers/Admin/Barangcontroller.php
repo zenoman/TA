@@ -473,46 +473,60 @@ class Barangcontroller extends Controller
         
     }
 //------------------------------- API ANDROID _--------------
-    function getBarang(){
-        $barang = DB::table('tb_kodes')
-        ->join('tb_kategoris', 'tb_kodes.id_kategori', '=', 'tb_kategoris.id')       
-        ->join('gambar','tb_kodes.kode_barang','=','gambar.kode_barang')
-        ->select(DB::raw('tb_kodes.*,gambar.nama, tb_kategoris.kategori'))
-        ->groupBy('tb_kodes.kode_barang')
-        ->paginate(10);
-        return response()->json($barang);
-    }
-    function listEtalase(){
-        $barang = DB::table('tb_kodes')
-        ->join('gambar','tb_kodes.kode_barang','=','gambar.kode_barang')       
-        ->select(DB::raw('tb_kodes.*,gambar.nama'))
-        ->orderByRaw('RAND()')
-        ->limit(7)
+function getBarang(){
+    $barang = DB::table('tb_kodes')
+    ->join('tb_kategoris', 'tb_kodes.id_kategori', '=', 'tb_kategoris.id')       
+    ->join('gambar','tb_kodes.kode_barang','=','gambar.kode_barang')
+    ->join("tb_barangs",'tb_kodes.kode_barang','=',"tb_barangs.kode")
+    ->select(DB::raw('tb_kodes.*,gambar.nama, tb_kategoris.kategori'))
+    ->groupBy('tb_kodes.kode_barang')
+    ->orderBy('tb_kodes.id','desc')
+    ->havingRaw('SUM(tb_barangs.stok) > ?', [0])
+    ->paginate(25);
+    return response()->json($barang);
+}
+
+function listEtalase(){
+    $barang = DB::table('tb_kodes')
+    ->join('tb_kategoris', 'tb_kodes.id_kategori', '=', 'tb_kategoris.id')       
+    ->join('gambar','tb_kodes.kode_barang','=','gambar.kode_barang')
+    ->join("tb_barangs",'tb_kodes.kode_barang','=',"tb_barangs.kode")
+    ->select(DB::raw('tb_kodes.*,gambar.nama, tb_kategoris.kategori'))
+    ->groupBy('tb_kodes.kode_barang')
+    ->orderByRaw('RAND()')
+    ->havingRaw('SUM(tb_barangs.stok) > ?', [0])
+    ->paginate(20);
+    return response()->json($barang);
+}
+function gmbItem($id){
+    $gmb=DB::table('gambar')
+        ->select('nama')
+        ->where('kode_barang',$id)->get();       
+    return response()->json(["data"=>$gmb]);    
+}
+function warnaItem($id){
+    $warna=DB::table('tb_barangs')
+        ->join("tb_kodes","tb_kodes.kode_barang","=","tb_barangs.kode")
+        ->select(DB::raw("tb_kodes.deskripsi,tb_barangs.*"))
+        ->where('kode',$id)
         ->get();
-        return response()->json(["data"=>$barang]);
-    }
-    function gmbItem($id){
-        $gmb=DB::table('gambar')
-            ->select('nama')
-            ->where('kode_barang',$id)->get();       
-        return response()->json(["data"=>$gmb]);    
-    }
-    function warnaItem($id){
-        $warna=DB::table('tb_barangs')
-            ->join("tb_kodes","tb_kodes.kode_barang","=","tb_barangs.kode")
-            ->select(DB::raw("tb_kodes.deskripsi,tb_barangs.*"))
-            ->where('kode',$id)
+        return response()->json(["data_barang"=>$warna]);    
+}
+function perKategori($id){
+    $data = DB::table('tb_kodes')
+        ->join('gambar',"gambar.kode_barang","=","tb_kodes.kode_barang")
+        ->select(DB::raw("tb_kodes.*,gambar.nama"))
+        ->where('id_kategori',$id)
+        ->groupBy('tb_kodes.kode_barang')
+        ->orderByRaw('RAND()')
+        ->paginate(15);
+    return response()->json($data);        
+}
+function settingA(){
+    $data=DB::table("admins")
+            ->where("level","admin")
             ->get();
-            return response()->json(["data_barang"=>$warna]);    
-    }
-    function perKategori($id){
-        $data = DB::table('tb_kodes')
-            ->join('gambar',"gambar.kode_barang","=","tb_kodes.kode_barang")
-            ->select(DB::raw("tb_kodes.*,gambar.nama"))
-            ->where('id_kategori',$id)
-            ->paginate(5);
-        return response()->json($data);
-        
-    }
+    return response()->json(["data"=>$data]);
+}
     
 }
