@@ -147,18 +147,20 @@
 <div class="footer-top-area">
         <div class="container">
             <div class="row">
+                
                 <div class="col-md-12 col-sm-12">
                     <div class="footer-about-us text-center">
                         <h2>Temukan <span>Kami</span></h2>
-                        <p>Dapatkan versi android <a href="">disini</a>, atau kunjungi sosial media kami</p>
+                        <p>Dapatkan versi android <a href="https://play.google.com/store/apps/details?id=project.com.tastore" target="_blank">disini</a>, atau kunjungi sosial media kami</p>
                         <div class="footer-social">
-                            <a href="#" target="_blank"><i class="fa fa-facebook"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-twitter"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-youtube"></i></a>
-                            <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a>
+                            <a href="https://www.facebook.com/Store.Tulungagung" target="_blank"><i class="fa fa-facebook"></i></a>
+                            <a href="https://www.instagram.com/store.tulungagung/" target="_blank"><i class="fa fa-instagram"></i></a>
+                            <a href="https://shopee.co.id/store.tulungagung" target="_blank"><i class="fa fa-shopping-cart"></i></a>
+                            <!-- <a href="#" target="_blank"><i class="fa fa-linkedin"></i></a> -->
                         </div>
                     </div>
                 </div>
+                
                 
             </div>
         </div>
