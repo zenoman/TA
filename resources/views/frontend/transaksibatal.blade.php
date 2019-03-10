@@ -77,9 +77,7 @@
                                     <thead>
                                         <tr>
                                             <th class="text-center">
-                                            Nama Barang</th>
-                                            <th class="text-center">
-                                            Warna</th>
+                                            Barang</th>
                                             <th class="text-center">
                                             Jumlah</th>
                                             <th class="text-center">Harga</th>
@@ -93,9 +91,6 @@
                                         <tr>
                                             <td>
                                                 {{$brg->barang}}
-                                            </td>
-                                            <td>
-                                                {{$brg->warna}}
                                             </td>
                                             <td>
                                                 {{$brg->jumlah}} Pcs

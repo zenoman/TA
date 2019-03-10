@@ -21,6 +21,14 @@
     @endforeach
     @endsection
     @section('content')
+    <style>
+        .tombol-merah{
+            padding: 6px 10px;
+        }
+        .tombol{
+            padding: 6px 10px;
+        }
+    </style>
     <div class="product-big-title-area">
         <div class="container">
             <div class="row">
